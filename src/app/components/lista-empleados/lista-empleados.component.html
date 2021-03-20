@@ -1,0 +1,36 @@
+<app-grupo-empleados [todos]="todos" [masculinos]="masculinos" [femeninos]="femeninos" [indefinidos]="indefinidos" (radioCambiado)="cambioElRadio($event)"></app-grupo-empleados>
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+              Featured
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nomrbe</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Puesto</th>
+                        <th scope="col">Sexo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngFor="let empleado of arrEmpleados">
+                        <tr *ngIf="filtroRadio === 'Todos' || empleado.sexo == filtroRadio">
+                          <th scope="row">{{ empleado.numero }}</th>
+                          <td>{{ empleado.nombre }}</td>
+                          <td>{{ empleado.apellido }}</td>
+                          <td>{{ empleado.puesto }}</td>
+                          <td>{{ empleado.sexo }}</td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                </table>
+              </li>
+            </ul>
+        </div>
+    </div>
+</div>
